@@ -1,0 +1,94 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Vitodata 100 – Anmeldung",
+        "description": "Zugangsdaten des Vitodata-100-Portals. Anlage und Heizkreise werden automatisch erkannt.",
+        "data": {
+          "username": "Benutzername (E-Mail)",
+          "password": "Passwort"
+        }
+      },
+      "device": {
+        "title": "Anlage auswählen",
+        "data": {
+          "device_id": "Anlage (Portal-ID)"
+        }
+      }
+    },
+    "error": {
+      "invalid_auth": "Login fehlgeschlagen – Benutzername oder Passwort prüfen.",
+      "cannot_connect": "Portal nicht erreichbar oder Anlage konnte nicht geöffnet werden.",
+      "no_devices": "Für diesen Benutzer wurde keine Anlage gefunden."
+    },
+    "abort": {
+      "already_configured": "Diese Anlage ist bereits eingerichtet."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Vitodata 100 konfigurieren",
+        "menu_options": {
+          "general": "Allgemein",
+          "select_circuit": "Heizkreis einstellen"
+        }
+      },
+      "general": {
+        "title": "Allgemein",
+        "data": {
+          "scan_interval": "Abfrage-Intervall der Portalwerte",
+          "write_time": "Uhrzeit der nächtlichen Übertragung",
+          "watch_calendars": "Kalenderüberwachung (dringende Änderungen sofort übertragen)",
+          "watch_interval": "Prüfintervall der Kalenderüberwachung",
+          "notify_services": "Benachrichtigungsdienste bei Problemen",
+          "stale_hours": "Alarm, wenn Anlagendaten älter als"
+        },
+        "data_description": {
+          "scan_interval": "Minuten, z. B. 240 = alle 4 Stunden. Größere Werte schonen das Portal.",
+          "watch_calendars": "Prüft die Kalender lokal und überträgt nur Änderungen für heute/morgen sofort – ohne Änderung kein Portalzugriff.",
+          "notify_services": "z. B. „notify.mobile_app_michaels_iphone“, mehrere mit Komma trennen. Leer = nur Hinweis in HA (Reparaturen + Benachrichtigung).",
+          "stale_hours": "Stunden, 0 = aus. Erst einschalten, wenn „Datenstand Portal“ sich zuverlässig aktualisiert."
+        }
+      },
+      "select_circuit": {
+        "title": "Heizkreis wählen",
+        "data": {
+          "circuit": "Heizkreis"
+        }
+      },
+      "circuit": {
+        "title": "Heizkreis {circuit}",
+        "data": {
+          "mode": "Modus",
+          "calendars": "Kalender (nur Modus Kalender)",
+          "preheat": "Vorheizen vor Terminbeginn",
+          "stop_before": "Abschalten vor Terminende",
+          "fixed": "Fester Plan (nur Modus Fester Plan)"
+        },
+        "data_description": {
+          "fixed": "Eine Zeile je Tagesgruppe, z. B. „Mo-So 08:00-22:00“ oder „Mo-Fr 07:00-09:00, 17:00-22:00“. Max. 4 Zeiträume pro Tag, 10-Minuten-Schritte. Spätere Zeilen überschreiben frühere."
+        }
+      }
+    },
+    "error": {
+      "invalid_plan": "Fester Plan ist ungültig (Format, 10-Minuten-Schritte, max. 4 Zeiträume).",
+      "no_calendar": "Bitte mindestens einen Kalender wählen."
+    }
+  },
+  "selector": {
+    "mode": {
+      "options": {
+        "calendar": "Kalender",
+        "fixed": "Fester Plan",
+        "none": "Nicht verwalten"
+      }
+    }
+  },
+  "issues": {
+    "problem": {
+      "title": "Vitodata 100: Problem mit der Heizungssteuerung",
+      "description": "{message}\n\nDie zuletzt übertragenen Zeitprogramme laufen in der Anlage weiter. Der Hinweis verschwindet automatisch, sobald das Problem behoben ist."
+    }
+  }
+}
