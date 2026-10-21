@@ -1,7 +1,7 @@
 {
   "domain": "vitodata100",
   "name": "Vitodata 100",
-  "codeowners": [weide-git],
+  "codeowners": ["@weide-git"],
   "config_flow": true,
   "dependencies": ["calendar"],
   "documentation": "https://github.com/weide-git/vitodata100",
